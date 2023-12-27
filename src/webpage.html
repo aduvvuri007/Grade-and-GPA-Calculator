@@ -5,38 +5,23 @@
     <body>
 
         <h1> Grades </h1>
-        <p> Insert your grade into the table to see your current percentage</p>
+        <p> Insert your grade into the table to see your current percentage
+        </p>
+
+        <h1> GPA </h1>
+        <p> Insert your courses and grades to calculate your GPA for the semester.
+            Additionally, enter previous GPA to calculate cumulative GPA</p>
         <table id="grades" border="1">
             <tr> 
-                <th>Course</th>
-                <th>Grade</th>
-                <th>Credits</th>
+                <th style="width:150;">Course</th>
+                <th style="width:50;">Grade</th>
+                <th style="width:50;">Credits</th>
             </tr>
         </table>
 
-        <label> Grade</label>
-            <select name="letter-grades" id="letter-grades"> 
-                <option value="A+">A+</option> 
-                <option value="A">A</option> 
-                <option value="A-">A-</option> 
-                <option value="B+">B+</option> 
-                <option value="B">B</option> 
-                <option value="B-">B-</option> 
-                <option value="C+">C+</option> 
-                <option value="C">C</option> 
-                <option value="C-">C-</option> 
-                <option value="D+">D+</option> 
-                <option value="D">D</option> 
-                <option value="D-">D-</option> 
-                <option value="F">F</option> 
-            </select>
         <button class="add"> Add Another Course </button>
         <button class="delete"> Remove A Row</button>
 
-        <h2> GPA </h2>
-        <p> Insert your courses and grades to calculate your GPA for the semester.
-            Additionally, enter previous GPA to calculate cumulative GPA
-        </p>
         <script src="main.js"></script>
     </body>
 </html>
