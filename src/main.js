@@ -1,9 +1,53 @@
-const add = document.querySelector(".add");
-const remove = document.querySelector(".delete");
-const table = document.querySelector("#grades");
+const addCourse = document.querySelector(".add-course");
+const remove = document.querySelector(".delete-course");
+const gpaTable = document.querySelector("#gpa");
 
-add.addEventListener("click", () => {
-    const newRow = table.insertRow();
+const addAssignment = document.querySelector(".add-assignment");
+const removeAssignment = document.querySelector(".delete-assignment");
+const gradesTable = document.querySelector("#grades");
+
+addAssignment.addEventListener("click", () => {
+    const newRow = gradesTable.insertRow();
+
+    const assignmentCell = newRow.insertCell();
+    assignmentCell.style.height = '25px'
+
+    const assignmentInput = document.createElement("input");
+    assignmentInput.setAttribute("type", "text");
+    assignmentInput.setAttribute("placeholder", "Enter Assignment Here");
+    assignmentCell.appendChild(assignmentInput);
+
+    const gradeCell = newRow.insertCell();
+    gradeCell.style.height = '25px'
+
+    const gradeInput = document.createElement("input");
+    gradeInput.setAttribute("type", "number");
+    gradeInput.style.width = "125";
+    gradeInput.setAttribute("max", "100");
+    gradeInput.setAttribute("min", "0");
+    gradeInput.setAttribute("placeholder", "Grade As %");
+    gradeCell.appendChild(gradeInput);
+
+    const weightCell = newRow.insertCell();
+    weightCell.style.height = '25px'
+
+    const weightInput = document.createElement("input");
+    weightInput.setAttribute("type", "number");
+    weightInput.style.width = "125";
+    weightInput.setAttribute("max", "100");
+    weightInput.setAttribute("min", "0");
+    weightInput.setAttribute("placeholder", "Grade As %");
+    weightCell.appendChild(weightInput);
+});
+
+removeAssignment.addEventListener("click", () => {
+    if(gradesTable.rows.length != 1){
+        gradesTable.deleteRow(-1);
+    }
+});
+
+addCourse.addEventListener("click", () => {
+    const newRow = gpaTable.insertRow();
 
     const courseCell = newRow.insertCell();
     courseCell.style.height = '25px'
@@ -122,8 +166,8 @@ add.addEventListener("click", () => {
 });
 
 remove.addEventListener("click", () => {
-    if(table.rows.length != 1){
-        table.deleteRow(-1);
+    if(gpaTable.rows.length != 1){
+        gpaTable.deleteRow(-1);
     }
 })
 

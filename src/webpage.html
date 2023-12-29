@@ -5,13 +5,21 @@
     <body>
 
         <h1> Grades </h1>
-        <p> Insert your grade into the table to see your current percentage
-        </p>
+        <p> Insert your grade into the table to see your current percentage</p>
+        <table id="grades" border="1">
+            <tr> 
+                <th style="width:150;">Assignment</th>
+                <th style="width:125;">Grade (as a %)</th>
+                <th style="width:50;">Weight</th>
+            </tr>
+        </table>
+
+        <button class="add-assignment"> Add Another Assignemnt </button>
+        <button class="delete-assignment"> Remove An Assignment</button>
 
         <h1> GPA </h1>
-        <p> Insert your courses and grades to calculate your GPA for the semester.
-            Additionally, enter previous GPA to calculate cumulative GPA</p>
-        <table id="grades" border="1">
+        <p> Insert your courses and grades to calculate your GPA for the semester. </p>
+        <table id="gpa" border="1">
             <tr> 
                 <th style="width:150;">Course</th>
                 <th style="width:50;">Grade</th>
@@ -19,8 +27,8 @@
             </tr>
         </table>
 
-        <button class="add"> Add Another Course </button>
-        <button class="delete"> Remove A Row</button>
+        <button class="add-course"> Add Another Course </button>
+        <button class="delete-course"> Remove A Row</button>
 
         <script src="main.js"></script>
     </body>
