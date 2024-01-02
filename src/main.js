@@ -6,6 +6,41 @@ const addAssignment = document.querySelector(".add-assignment");
 const removeAssignment = document.querySelector(".delete-assignment");
 const gradesTable = document.querySelector("#grades");
 
+const calculateGrades = document.querySelector(".calculate-grades")
+
+calculateGrades.addEventListener("click", () => {
+    if(gradesTable.rows.length == 1){
+        alert("Enter an Assignment");
+    } else {
+        const grades = document.getElementsByClassName('grade');
+        const weights = document.getElementsByClassName('weight');
+
+        console.log(grades);
+        console.log(weights);
+
+        let sum = 0;
+        for(let i = 0; i < weights.length; i++){
+            sum += Number(weights[i].value);
+            
+            if (sum > 100){
+                alert("Make sure weights add up to less than or equal to 100");
+                return;
+            }
+        }
+
+        if(sum !== 100){
+            alert("Make sure weights add up to 100");
+            return;
+        }
+        
+        let courseGrade = 0;
+        for(let i = 0; i < grades.length; i++){
+            courseGrade += Number(grades[i].value) * (Number(weights[i].value)/100.0)
+        }
+        alert("Your grade is " + courseGrade);
+    }
+});
+
 addAssignment.addEventListener("click", () => {
     const newRow = gradesTable.insertRow();
 
@@ -26,6 +61,7 @@ addAssignment.addEventListener("click", () => {
     gradeInput.setAttribute("max", "100");
     gradeInput.setAttribute("min", "0");
     gradeInput.setAttribute("placeholder", "Grade As %");
+    gradeInput.setAttribute("class", "grade");
     gradeCell.appendChild(gradeInput);
 
     const weightCell = newRow.insertCell();
@@ -36,7 +72,8 @@ addAssignment.addEventListener("click", () => {
     weightInput.style.width = "125";
     weightInput.setAttribute("max", "100");
     weightInput.setAttribute("min", "0");
-    weightInput.setAttribute("placeholder", "Grade As %");
+    weightInput.setAttribute("placeholder", "Weight");
+    weightInput.setAttribute("class", "weight");
     weightCell.appendChild(weightInput);
 });
 
