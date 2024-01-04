@@ -1,5 +1,5 @@
 const addCourse = document.querySelector(".add-course");
-const remove = document.querySelector(".delete-course");
+const removeCourse = document.querySelector(".delete-course");
 const gpaTable = document.querySelector("#gpa");
 
 const addAssignment = document.querySelector(".add-assignment");
@@ -7,6 +7,7 @@ const removeAssignment = document.querySelector(".delete-assignment");
 const gradesTable = document.querySelector("#grades");
 
 const calculateGrades = document.querySelector(".calculate-grades")
+const calculateGPA = document.querySelector(".calculate-gpa");
 
 calculateGrades.addEventListener("click", () => {
     if(gradesTable.rows.length == 1){
@@ -26,6 +27,11 @@ calculateGrades.addEventListener("click", () => {
                     alert("Make sure weights add up to less than or equal to 100");
                     return;
                 }
+
+                if(Number(grades[i].value) < 0 || Number(grades[i].value) > 100){
+                    alert("Provide a valid grade between 0-100");
+                    return;
+                }
             }
             
             let courseGrade = 0;
@@ -42,6 +48,10 @@ calculateGrades.addEventListener("click", () => {
             let sum = 0;
             for(let i = 0; i < weights.length; i++){
                 sum += Number(weights[i].value);
+                if(Number(grades[i].value) < 0 || Number(grades[i].value) > 100){
+                    alert("Provide a valid grade between 0-100");
+                    return;
+                }
             }
             sum += Number(finalExamWeight.value);
 
@@ -81,6 +91,7 @@ addAssignment.addEventListener("click", () => {
 
     const gradeInput = document.createElement("input");
     gradeInput.setAttribute("type", "number");
+    gradeInput.setAttribute("inputmode", "numeric");
     gradeInput.style.width = "125";
     gradeInput.setAttribute("max", "100");
     gradeInput.setAttribute("min", "0");
@@ -93,6 +104,7 @@ addAssignment.addEventListener("click", () => {
 
     const weightInput = document.createElement("input");
     weightInput.setAttribute("type", "number");
+    weightInput.setAttribute("inputmode", "numeric");
     weightInput.style.width = "125";
     weightInput.setAttribute("max", "100");
     weightInput.setAttribute("min", "0");
@@ -123,70 +135,70 @@ addCourse.addEventListener("click", () => {
     
     const gradeSelect = document.createElement("select");
     gradeSelect.setAttribute("name", "letter-grades");
-    gradeSelect.setAttribute("id", "letter-grades");
+    gradeSelect.setAttribute("class", "letter-grades");
 
     option = document.createElement("option");
-    option.setAttribute("value", "A+");
+    option.setAttribute("value", "4.0");
     option.innerHTML = "A+";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "A");
+    option.setAttribute("value", "4.0");
     option.innerHTML = "A";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "A-");
+    option.setAttribute("value", "3.7");
     option.innerHTML = "A-";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "B+");
+    option.setAttribute("value", "3.3");
     option.innerHTML = "B+";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "B");
+    option.setAttribute("value", "3.0");
     option.innerHTML = "B";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "B-");
+    option.setAttribute("value", "2.7");
     option.innerHTML = "B-";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "C+");
+    option.setAttribute("value", "2.3");
     option.innerHTML = "C+";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "C");
+    option.setAttribute("value", "2.0");
     option.innerHTML = "C";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "C-");
+    option.setAttribute("value", "1.7");
     option.innerHTML = "C-";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "D+");
+    option.setAttribute("value", "1.3");
     option.innerHTML = "D+";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "D");
+    option.setAttribute("value", "1.0");
     option.innerHTML = "D";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "D-");
+    option.setAttribute("value", "0.7");
     option.innerHTML = "D-";
     gradeSelect.appendChild(option);
 
     option = document.createElement("option");
-    option.setAttribute("value", "F");
+    option.setAttribute("value", "0.0");
     option.innerHTML = "F";
     gradeSelect.appendChild(option);
 
@@ -194,9 +206,10 @@ addCourse.addEventListener("click", () => {
 
     const creditCell = newRow.insertCell();
     creditCell.style.height = '25px'
+
     const creditSelect = document.createElement("select");
     creditSelect.setAttribute("name", "credits");
-    creditSelect.setAttribute("id", "credits");
+    creditSelect.setAttribute("class", "credits");
 
     option = document.createElement("option");
     option.setAttribute("value", "1.0");
@@ -226,9 +239,30 @@ addCourse.addEventListener("click", () => {
     creditCell.appendChild(creditSelect);
 });
 
-remove.addEventListener("click", () => {
+removeCourse.addEventListener("click", () => {
     if(gpaTable.rows.length != 1){
         gpaTable.deleteRow(-1);
     }
-})
+});
+
+calculateGPA.addEventListener("click", () => {
+    const letterGrades = document.getElementsByClassName("letter-grades");
+    const credits = document.getElementsByClassName("credits");
+
+    if(gpaTable.rows.length == 1){
+        alert("Enter a course");
+        return;
+    }
+
+    let sum = 0;
+    let totalCredits = 0;
+    for(let i = 0; i < letterGrades.length; i++){
+        sum += Number(letterGrades[i].value) * Number(credits[i].value);
+        totalCredits += Number(credits[i].value);
+    }
+
+    let gpa = sum/totalCredits;
+
+    alert("Your GPA is " + gpa);
+});
 
