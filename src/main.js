@@ -14,30 +14,54 @@ calculateGrades.addEventListener("click", () => {
     } else {
         const grades = document.getElementsByClassName('grade');
         const weights = document.getElementsByClassName('weight');
+        const finalGradeWanted = document.getElementById("final-grade");
+        const finalExamWeight = document.getElementById("final-weight");
 
-        console.log(grades);
-        console.log(weights);
-
-        let sum = 0;
-        for(let i = 0; i < weights.length; i++){
-            sum += Number(weights[i].value);
+        if (finalGradeWanted.value == 0 && finalExamWeight.value == 0){
+            let sum = 0;
+            for(let i = 0; i < weights.length; i++){
+                sum += Number(weights[i].value);
+                
+                if (sum > 100){
+                    alert("Make sure weights add up to less than or equal to 100");
+                    return;
+                }
+            }
             
-            if (sum > 100){
-                alert("Make sure weights add up to less than or equal to 100");
+            let courseGrade = 0;
+            let currentWeight = 0;
+            for(let i = 0; i < grades.length; i++){
+                courseGrade += Number(grades[i].value) * (Number(weights[i].value)/100.0)
+                currentWeight += Number(weights[i].value);
+            }
+            courseGrade = ((courseGrade * 1.0)/currentWeight) * 100
+            alert("Your grade is " + courseGrade + "%");
+        } else if(finalGradeWanted.value == 0 || finalExamWeight.value == 0){
+            alert("Enter both fields to calculate the grade needed on the final exam");
+        } else {
+            let sum = 0;
+            for(let i = 0; i < weights.length; i++){
+                sum += Number(weights[i].value);
+            }
+            sum += Number(finalExamWeight.value);
+
+            console.log("reached")
+            console.log(sum);
+
+            if(sum !== 100){
+                alert("Make sure weights add up to 100");
                 return;
             }
-        }
 
-        if(sum !== 100){
-            alert("Make sure weights add up to 100");
-            return;
+            let courseGrade = 0;
+            for(let i = 0; i < grades.length; i++){
+                courseGrade += Number(grades[i].value) * (Number(weights[i].value)/100.0)
+            }
+
+            const finalGrade = ((Math.abs(Number(finalGradeWanted.value) - courseGrade))/(Number(finalExamWeight.value) * 1.0)) * 100;
+
+            alert("The grade you need is " + finalGrade + "%");
         }
-        
-        let courseGrade = 0;
-        for(let i = 0; i < grades.length; i++){
-            courseGrade += Number(grades[i].value) * (Number(weights[i].value)/100.0)
-        }
-        alert("Your grade is " + courseGrade);
     }
 });
 
