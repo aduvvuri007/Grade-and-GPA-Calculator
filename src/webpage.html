@@ -1,49 +1,54 @@
 <html> 
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="design.css">
         <title> Grade and GPA Calculator</title>
     </head>
     <body>
+        <h1> Grade and GPA Calculator</h1>
 
-        <h1> Grades </h1>
-        <p> Insert your grade into the table to see your current percentage</p>
-        <table id="grades" border="1">
-            <tr> 
-                <th style="width:150;">Assignment</th>
-                <th style="width:125;">Grade (as a %)</th>
-                <th style="width:50;">Weight</th>
-            </tr>
-        </table>
+        <div class="container"> 
+            <h1> Grades </h1>
+            <p> Insert your grade into the table to see your current percentage</p>
+            <table id="grades" border="1">
+                <tr> 
+                    <th style="width:150;">Assignment</th>
+                    <th style="width:125;">Grade (as a %)</th>
+                    <th style="width:50;">Weight</th>
+                </tr>
+            </table>
 
-        <button class="add-assignment"> Add Another Assignment </button>
-        <button class="delete-assignment"> Remove An Assignment</button>
-        <button class="calculate-grades"> Calculate Grades</button>
+            <button class="add-assignment"> Add Another Assignment </button>
+            <button class="delete-assignment"> Remove An Assignment</button>
+            <button class="calculate-grades"> Calculate Grades</button>
 
-        <p> Insert the weightage of the final exam and the final grade you would like to see what grade you need to get on the final exam</p>
-        <table id="final" border="1">
-            <tr> 
-                <th style="width:125;">Final Grade Wanted</th>
-                <th style="width:50;">Weight</th>
-            </tr>
-            <tr> 
-                <th style="width:125;"> <input type="number" id="final-grade" min="0" max="100"> </th>
-                <th style="width:50;"> <input type="number" id="final-weight" min="0" max="100"> </th>
-            </tr>
-        </table>
+            <p> Insert the weightage of the final exam and the final grade you would like to see what grade you need to get on the final exam</p>
+            <table id="final" border="1">
+                <tr> 
+                    <th style="width:125;">Final Grade Wanted</th>
+                    <th style="width:50;">Weight</th>
+                </tr>
+                <tr> 
+                    <th style="width:125;"> <input type="number" id="final-grade" min="0" max="100"> </th>
+                    <th style="width:50;"> <input type="number" id="final-weight" min="0" max="100"> </th>
+                </tr>
+            </table>
 
-        <h1> GPA </h1>
-        <p> Insert your courses and grades to calculate your GPA for the semester. </p>
-        <table id="gpa" border="1">
-            <tr> 
-                <th style="width:150;">Course</th>
-                <th style="width:50;">Grade</th>
-                <th style="width:50;">Credits</th>
-            </tr>
-        </table>
+            <h1> GPA </h1>
+            <p> Insert your courses and grades to calculate your GPA for the semester. </p>
+            <table id="gpa" border="1">
+                <tr> 
+                    <th style="width:150;">Course</th>
+                    <th style="width:50;">Grade</th>
+                    <th style="width:50;">Credits</th>
+                </tr>
+            </table>
 
-        <button class="add-course"> Add Another Course </button>
-        <button class="delete-course"> Remove A Row</button>
-        <button class="calculate-gpa"> Calculate GPA</button>
-
+            <button class="add-course"> Add Another Course </button>
+            <button class="delete-course"> Remove A Row</button>
+            <button class="calculate-gpa"> Calculate GPA</button>
+        </div>
         <script src="main.js"></script>
     </body>
 </html>

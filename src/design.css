@@ -1,0 +1,29 @@
+html {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+body {
+    background-color:#318fc1;
+    font-family: Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: #e0e7c0;
+    padding: 20px;
+    max-width: 600px; 
+    width: 300%; 
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .container button {
+    margin: 5px;
+  }
