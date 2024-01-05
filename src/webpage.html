@@ -10,7 +10,10 @@
 
         <div class="container"> 
             <h1> Grades </h1>
-            <p> Insert your grade into the table to see your current percentage</p>
+            <p> Insert your grade into the table to see your current percentage. Make sure you insert your grades and weights
+                between 0-100. Grades are calculated using the following formula:
+                <p>((Grade1 * Weight1) + (Grade2 * Weight2) + .... + (GradeN * WeightN)) / Total Weight.</p>
+            </p>
             <table id="grades" border="1">
                 <tr> 
                     <th style="width:150;">Assignment</th>
@@ -23,7 +26,11 @@
             <button class="delete-assignment"> Remove An Assignment</button>
             <button class="calculate-grades"> Calculate Grades</button>
 
-            <p> Insert the weightage of the final exam and the final grade you would like to see what grade you need to get on the final exam</p>
+            <p> Insert the weightage of the final exam and the final grade you are aiming for 
+                in order to see what grade you need to get on the final exam to attain that grade.
+                The formula used to calculate this is:
+                <p>|Expected Grade - Current Grade| / Final Exam Weight</p>
+            </p>
             <table id="final" border="1">
                 <tr> 
                     <th style="width:125;">Final Grade Wanted</th>

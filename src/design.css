@@ -3,27 +3,28 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-y: scroll;
   }
 
 body {
     background-color:#318fc1;
     font-family: Arial, sans-serif;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .container {
     background-color: #e0e7c0;
     padding: 20px;
-    max-width: 600px; 
+    max-width: 650px; 
     width: 300%; 
     margin-top: 20px;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
+    overflow-y: scroll;
   }
 
   .container button {
-    margin: 5px;
+    margin: 2px;
   }
