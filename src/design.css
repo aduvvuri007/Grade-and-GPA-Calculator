@@ -1,28 +1,30 @@
 html {
+    margin: 0;
     height: 100%;
-    display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: scroll;
+    overflow: auto;
   }
 
 body {
+    margin: 0;
+    padding: 0px;
     background-color:#318fc1;
     font-family: Arial, sans-serif;
     align-items: flex-start;
     justify-content: center;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 .container {
-    background-color: #e0e7c0;
+    margin: 0;
+    background-color: #e7ebd8;
     padding: 20px;
-    max-width: 650px; 
-    width: 300%; 
     margin-top: 20px;
+    height: 85%;
     flex-direction: column;
     justify-content: flex-start;
-    overflow-y: scroll;
+    overflow: auto;
   }
 
   .container button {
