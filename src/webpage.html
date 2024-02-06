@@ -15,11 +15,13 @@
                 <p>((Grade1 * Weight1) + (Grade2 * Weight2) + .... + (GradeN * WeightN)) / Total Weight.</p>
             </p>
             <table id="grades" border="1">
-                <tr> 
-                    <th style="width:150;">Assignment</th>
-                    <th style="width:125;">Grade (as a %)</th>
-                    <th style="width:50;">Weight</th>
-                </tr>
+                <thead>
+                    <tr> 
+                        <th style="width:150;">Assignment</th>
+                        <th style="width:125;">Grade (as a %)</th>
+                        <th style="width:50;">Weight</th>
+                    </tr>
+                </thead>
             </table>
 
             <button class="add-assignment"> Add Another Assignment </button>
@@ -32,10 +34,12 @@
                 <p>|Expected Grade - Current Grade| / Final Exam Weight</p>
             </p>
             <table id="final" border="1">
-                <tr> 
-                    <th style="width:125;">Final Grade Wanted</th>
-                    <th style="width:50;">Weight</th>
-                </tr>
+                </thead>
+                    <tr> 
+                        <th style="width:125;">Final Grade Wanted</th>
+                        <th style="width:50;">Weight</th>
+                    </tr>
+                </thead>
                 <tr> 
                     <th style="width:125;"> <input type="number" id="final-grade" min="0" max="100"> </th>
                     <th style="width:50;"> <input type="number" id="final-weight" min="0" max="100"> </th>
@@ -45,15 +49,17 @@
             <h1> GPA </h1>
             <p> Insert your courses and grades to calculate your GPA for the semester. </p>
             <table id="gpa" border="1">
-                <tr> 
-                    <th style="width:150;">Course</th>
-                    <th style="width:50;">Grade</th>
-                    <th style="width:50;">Credits</th>
-                </tr>
+                <thead>
+                    <tr> 
+                        <th style="width:150;">Course</th>
+                        <th style="width:50;">Grade</th>
+                        <th style="width:50;">Credits</th>
+                    </tr>
+                </thead>
             </table>
 
             <button class="add-course"> Add Another Course </button>
-            <button class="delete-course"> Remove A Row</button>
+            <button class="delete-course"> Remove A Course</button>
             <button class="calculate-gpa"> Calculate GPA</button>
         </div>
         <script src="main.js"></script>

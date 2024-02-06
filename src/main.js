@@ -70,7 +70,11 @@ calculateGrades.addEventListener("click", () => {
 
             const finalGrade = ((Math.abs(Number(finalGradeWanted.value) - courseGrade))/(Number(finalExamWeight.value) * 1.0)) * 100;
 
-            alert("The grade you need is " + finalGrade + "%");
+            if(finalGrade > 100){
+                alert("It is impossible to get that grade")
+            } else {
+                alert("The grade you need is " + finalGrade + "%");
+            }
         }
     }
 });
